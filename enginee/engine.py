@@ -1,10 +1,10 @@
 import datetime
 class Historico:
     def __init__(self):
-        self.data_abertura = datetime.datetime.today
+        self.data_abertura = datetime.datetime.today()
         self.transacoes = []
     def imprime(self):
-        print(f'Data de abertura {self.data_abertura}')
+        print(f'Data de abertura: {self.data_abertura}')
         print('Transações: ')
         for t in self.transacoes:
             print(f'- {t}')
@@ -15,10 +15,11 @@ class Cliente:
         self.sobrenome = sobrenome
         self.cpf = cpf
 
-class Conta:
-    def __init__(self,numero,titular,saldo,limite):
+class Conta(Cliente):
+    def __init__(self,numero,nome,sobrenome,cpf,saldo,limite):
+        super().__init__(nome,sobrenome,cpf)
         self.numero = numero
-        self.titular = titular
+        self.titular = nome
         self.saldo = saldo
         self.limite = limite
         self.historico = Historico()
@@ -47,6 +48,6 @@ class Conta:
         if self.saldo < valor:
             print('Ação falha! Você não tem a quantia pedida.')
         else:
-            print(f'Concluido! Sera adicionado {valor} a conta {destino}')
+            print(f'Concluido! Sera adicionado {valor} a conta {destino.nome}')
             destino.deposita(valor)
-            self.historico.transacoes.append(f'Você transferiu {valor} para {destino}')
+            self.historico.transacoes.append(f'Você transferiu {valor} para {destino.nome}')
