@@ -1,19 +1,5 @@
-import datetime
-class Historico:
-    def __init__(self):
-        self.data_abertura = datetime.datetime.today()
-        self.transacoes = []
-    def imprime(self):
-        print(f'Data de abertura: {self.data_abertura}')
-        print('Transações: ')
-        for t in self.transacoes:
-            print(f'- {t}')
-
-class Cliente:
-    def __init__(self,nome,sobrenome,cpf):
-        self.nome = nome
-        self.sobrenome = sobrenome
-        self.cpf = cpf
+from modules.cliente import Cliente
+from modules.historico import Historico
 
 class Conta(Cliente):
     def __init__(self,numero,nome,sobrenome,cpf,saldo,limite):
