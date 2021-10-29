@@ -20,5 +20,4 @@ conta.extrato
 print(conta2.nome)
 print(conta.nome)
 conta.historico.imprime()"""
-continua = minhaGui.Gui.pegarInfo()
-continua.mostrarInfo()
+continua = minhaGui.Gui.iniciarGui()
