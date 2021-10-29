@@ -39,5 +39,5 @@ class Gui(Conta):
                     print(max(numerozada) - numerozada[i], end = ' ')
                
 
-                
+                print('good\n')
         return self
